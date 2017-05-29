@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessageSpikeArrestFault">
+    <DisplayName>AssignMessage.SpikeArrestFault</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <!--This error message should conform to OAS/Swagger spec. -->
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+               {
+                  "errorCode": "429",
+                  "errorMessage": "Too many requests in a given amount of time. It failed  in spike arrest",
+                  "correlationId": "@request.header.Transaction-Id#"
+                } 
+            </Payload>
+        <StatusCode>429</StatusCode>
+        <ReasonPhrase>Spike Arrest Rate Limiting</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

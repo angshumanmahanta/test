@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessageInsufficientScope">
+    <DisplayName>AssignMessage.InsufficientScope</DisplayName>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+            {  
+                "errorCode":"403",
+                "errorMessage":"Insufficient Scope, User is not authorized to access the given resouce",
+                "correlationId":"@request.header.Transaction-Id#"
+            }
+        </Payload>
+        <StatusCode>403</StatusCode>
+        <ReasonPhrase>Unauthorized</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

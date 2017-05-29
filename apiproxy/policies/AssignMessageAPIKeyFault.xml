@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessageAPIKeyFault">
+    <DisplayName>AssignMessage.APIKeyFault</DisplayName>
+    <Set>
+        <!--This error message should conform to OAS/Swagger spec. -->
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+               {
+                  "errorCode": 401,
+                  "errorMessage": "API Key is missing or invalid",
+                  "transactionId": "@request.header.Transaction-Id#"
+                } 
+                
+                </Payload>
+        <ReasonPhrase>Unauthorized</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>
